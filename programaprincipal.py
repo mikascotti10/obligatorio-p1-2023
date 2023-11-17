@@ -1,3 +1,4 @@
+from entities.Empleados import Empleados
 from entities.Equipos import Equipos
 from entities.Pilotos import Pilotos
 from entities.PilotoReserva import PilotoReserva
@@ -187,3 +188,5 @@ class ProgramaF1:
 if __name__ == "__main__":
     programa = ProgramaF1()
     programa.ejecutar_programa()
+
+

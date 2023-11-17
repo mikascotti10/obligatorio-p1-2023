@@ -1,5 +1,5 @@
-from Empleados import Empleados
-from Autos import Autos 
+from entities.Empleados import Empleados
+from entities.Autos import Autos 
 
 class Equipos:
     def __init__(self, nombre, pilotos: list, mecanicos: list, director: list, auto):
