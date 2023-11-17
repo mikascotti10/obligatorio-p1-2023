@@ -1,6 +1,6 @@
 from Empleados import Empleados
 
-class Pilotos(Empleados):
+class PilotoReserva(Empleados):
     def __init__(self, id, nombre, fecha_de_nacimiento, nacionalidad, salario, score, numero_de_auto, puntaje, lesion):
         super().__init__(id, nombre, fecha_de_nacimiento, nacionalidad, salario)
         self._score = score
@@ -36,10 +36,3 @@ class Pilotos(Empleados):
     @lesion.setter
     def lesion(self, x):
         self.lesion = x
-
-
-
-
-
-
-

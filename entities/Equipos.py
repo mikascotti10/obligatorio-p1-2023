@@ -3,12 +3,17 @@ from Autos import Autos
 
 class Equipos:
     def __init__(self, nombre, pilotos: list, mecanicos: list, director: list, auto):
-        #empleado 1, empleado 2, empleado 3, empleado 4, ..., empleado 8 (?)
         self._nombre = nombre
         self._pilotos = [pilotos]
         self._mecanicos = [mecanicos]
         self._director = [director]
         self._auto = auto
+    
+    def agregar_empleado(self, empleado):
+        self.empleados.append(empleado)
+
+    def asignar_auto(self, auto):
+        self.auto = auto
 
 
     @property
