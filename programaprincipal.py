@@ -6,6 +6,10 @@ from entities.Mecanicos import Mecanicos
 from entities.DirectorDeEquipo import DirectorDeEquipo
 from entities.Autos import Autos
 from random import random
+import json
+
+
+
 
 class ProgramaF1:
     def __init__(self):
@@ -156,7 +160,7 @@ class ProgramaF1:
         if opcion == 4:
             print(top_3_pilotos_mas_habilidosos(pilotos_carrera))
         if opcion == 5:
-            print(retornar_jefes_de_equipo(self.equipos))
+                print(retornar_jefes_de_equipo(self.equipos))
 
 
 
@@ -183,10 +187,31 @@ class ProgramaF1:
                 break
             else:
                 print("Opción no válida. Ingrese un número del 1 al 6.")
+    
+    def guardar_datos(self):
+        data = {
+            "empleados": [empleado.to_dict() for empleado in self.empleados],
+            "autos": [auto.to_dict() for auto in self.autos],
+            "equipos": [equipo.to_dict() for equipo in self.equipos]
+        }
+        with open('datos_f1.json', 'w') as file:
+            json.dump(data, file)
+
+    def cargar_datos(self):
+        try:
+            with open('datos_f1.json', 'r') as file:
+                data = json.load(file)
+                self.empleados = [Empleados.from_dict(empleado) for empleado in data['empleados']]
+                self.autos = [Autos.from_dict(auto) for auto in data['autos']]
+                self.equipos = [Equipos.from_dict(equipo) for equipo in data['equipos']]
+        except FileNotFoundError:
+            print("No se encontró un archivo de datos previo. Iniciando con datos vacíos.")
 
 
 if __name__ == "__main__":
     programa = ProgramaF1()
+    programa.cargar_datos()
     programa.ejecutar_programa()
+    programa.guardar_datos()
 
 
